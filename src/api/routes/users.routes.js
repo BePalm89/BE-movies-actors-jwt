@@ -18,7 +18,7 @@ router.get("/:id", getUserById);
 router.get("/role/:role", getUsersByRole);
 router.put("/:id", [isAdmin], updateUser);
 router.delete("/:id",[isAdmin], deleteUser);
-router.post("/register", registerUser);
+router.post("/register", [isAdmin], registerUser);
 router.post("/login", login);
 router.post("/logout", [isAuth] ,logout);
 

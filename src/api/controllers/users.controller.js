@@ -55,7 +55,10 @@ const deleteUser = async ( req, res, next ) => {
 
 const registerUser = async ( req, res, next ) => {
   try {
-    const newUser = new User(req.body);
+    const newUser = new User({
+      ...req.body,
+      role: 'user'
+    });
     const userExist = await User.findOne({ email: newUser.email });
     if(userExist) return next(new Error('User already existis'));
     
