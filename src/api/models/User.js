@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema(
     dateOfBirth: { type: Date, required: true },
     role: { type: String, required: true, enum: [ 'admin', 'user'] },
     profileImg: { type: String },
+    favoriteMovies: [{ type: mongoose.Types.ObjectId, ref: 'Movie'}]
   },
   { timestamps: true }
 );
