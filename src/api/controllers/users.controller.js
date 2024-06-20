@@ -46,6 +46,10 @@ const updateUser = async (req, res, next) => {
 const deleteUser = async ( req, res, next ) => {
     try {
         const { id } = req.params;
+        const { user } = req;
+        if(user._id.toString() === id) {
+          return res.status(403).json('The user is not authorized to delete himself or herself')
+        }
         await User.findByIdAndDelete(id);
         return res.status(200).json("User successfull deleted");
     } catch (error) {
