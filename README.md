@@ -11,7 +11,8 @@ In this BE project, I create an Express server, that is connected with MongoDB t
     password: { type: String, required: true },
     dateOfBirth: { type: Date, required: true },
     role: { type: String, required: true, enum: [ 'admin', 'user'] },
-    profileImg: { type: String }
+    profileImg: { type: String },
+    favoriteMovies: [{ type: mongoose.Types.ObjectId, ref: 'Movie'}]
  }
 ```
 ### Actor model:
